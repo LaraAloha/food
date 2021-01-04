@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { Foundation } from '@expo/vector-icons';
 import { TextInput } from 'react-native-gesture-handler';
 
-export const SearchBar = ({ term, onChangeTerm }) => {
+export const SearchBar = ({ term, onTermSubmit, onChangeTerm }) => {
   return (
     <View style={styles.background}>
       <Foundation
@@ -14,7 +14,8 @@ export const SearchBar = ({ term, onChangeTerm }) => {
         placeholder="search"
         style={styles.input}
         value={term}
-        onChangeText={newTerm => onChangeTerm(newTerm)}
+        onChangeText={onChangeTerm}
+        onEndEditing={onTermSubmit}
       />
     </View>
   );
